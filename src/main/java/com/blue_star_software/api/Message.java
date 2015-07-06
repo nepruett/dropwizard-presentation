@@ -1,19 +1,19 @@
-package com.blue_star_software.core;
+package com.blue_star_software.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
-public class Saying {
+public class Message {
     private long id;
 
-    @Length(max = 3)
+    @Length(min = 3)
     private String content;
 
-    public Saying() {
+    public Message() {
         // Jackson deserialization
     }
 
-    public Saying(long id, String content) {
+    public Message(long id, String content) {
         this.id = id;
         this.content = content;
     }
