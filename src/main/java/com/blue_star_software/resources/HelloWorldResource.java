@@ -1,4 +1,4 @@
-package com.blue_star_software.resource;
+package com.blue_star_software.resources;
 
 import com.codahale.metrics.annotation.Timed;
 

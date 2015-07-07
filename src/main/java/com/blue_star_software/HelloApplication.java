@@ -1,8 +1,8 @@
 package com.blue_star_software;
 
 import com.blue_star_software.health.TemplateHealthCheck;
-import com.blue_star_software.resource.HelloNameResource;
-import com.blue_star_software.resource.HelloWorldResource;
+import com.blue_star_software.resources.HelloNameResource;
+import com.blue_star_software.resources.HelloWorldResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
@@ -34,10 +34,12 @@ public class HelloApplication extends Application<HelloConfiguration> {
                 configuration.getTemplate(),
                 configuration.getDefaultName()
         );
+        environment.jersey().register(helloNameResource);
+
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
-        environment.jersey().register(helloNameResource);
+
     }
 
 }
